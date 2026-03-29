@@ -11,7 +11,6 @@ const client = new MongoClient(uri);
 
 console.log('Trying to connect to db');
 
-const dbName = 'company';
 const collectionName = 'users';
 const mockUsers = [
         { name: "Alice", email: "alice@test.com", dept: "Engineering" },
