@@ -11,10 +11,28 @@ const client = new MongoClient(uri);
 
 console.log('Trying to connect to db');
 
+const dbName = 'company';
+const collectionName = 'users';
+const mockUsers = [
+        { name: "Alice", email: "alice@test.com", dept: "Engineering" },
+        { name: "Bob", email: "bob@test.com", dept: "Marketing" },
+        { name: "Charlie", email: "charlie@test.com", dept: "Sales" },
+        { name: "Diana", email: "diana@test.com", dept: "Engineering" },
+        { name: "Ethan", email: "ethan@test.com", dept: "HR" },
+        { name: "Fiona", email: "fiona@test.com", dept: "IT" },
+        { name: "George", email: "george@test.com", dept: "Sales" },
+        { name: "Hannah", email: "hannah@test.com", dept: "Engineering" },
+        { name: "Ian", email: "ian@test.com", dept: "Marketing" },
+        { name: "Jenna", email: "jenna@test.com", dept: "Design" }
+];
+
+
 try {
   await client.connect();
   await client.db(dbName).command({ ping: 1 });
-  const users = await client.db('sample_mflix').collection('users').find({}).limit(10).toArray();
+  await client.db(dbName).collection(collectionName).insertMany(mockUsers);
+  console.log('Insert was successful');
+  const users = await client.db(dbName).collection(collectionName).find({}).limit(10).toArray();
   console.log('Connected successfully to server');
   console.log(users);
 } catch (error) {

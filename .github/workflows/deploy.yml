@@ -18,7 +18,7 @@ jobs:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
       MONGODB_CLUSTER_ADDRESS: mongo
       MONGODB_USERNAME: root
-      MONGODB_PASSWORD: WEMWKL:MFE21e21e!zz2123!@!@#
+      MONGODB_PASSWORD: GavGav12491
       PORT: 8080
     services:
       mongo:
@@ -27,7 +27,7 @@ jobs:
           - 27017:27017
         env:
            MONGO_INITDB_ROOT_USERNAME: root
-           MONGO_INITDB_ROOT_PASSWORD: "WEMWKL:MFE21e21e!zz2123!@!@#"
+           MONGO_INITDB_ROOT_PASSWORD: GavGav12491
     steps:
       - name: Get Code
         uses: actions/checkout@v6
