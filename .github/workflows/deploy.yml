@@ -19,7 +19,7 @@ jobs:
       MONGODB_CLUSTER_ADDRESS: mongo
       MONGODB_USERNAME: root
       MONGODB_PASSWORD: GavGav12491
-      PORT: 8080
+      PORT: 27017
     services:
       mongo:
         image: mongodb/mongodb-community-server:latest
