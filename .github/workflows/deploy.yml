@@ -22,7 +22,7 @@ jobs:
       PORT: 8080
     services:
       mongo:
-        image: 8.2.7-rc0-windowsservercore-ltsc2025
+        image: mongodb/mongodb-community-server:latest
         ports:
           - 27017:27017
         env:
