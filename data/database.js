@@ -14,6 +14,7 @@ console.log('Trying to connect to db');
 try {
   await client.connect();
   await client.db(dbName).command({ ping: 1 });
+  const users = await client.db('sample_mflix').collection('users').find({}).limit(10).toArray();
   console.log('Connected successfully to server');
 } catch (error) {
   console.log('Connection failed.');
