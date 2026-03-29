@@ -6,17 +6,28 @@ on:
       - dev
 env:
   CACHE_KEY: node-deps
-  MONGODB_DB_NAME: gha-demo
+  MONGODB_DB_NAME: admin
+
 jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
+    container:
+      image: node:24
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb+srv
-      MONGODB_CLUSTER_ADDRESS: ${{ secrets.MONGODB_CLUSTER_ADDRESS }}
-      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
-      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      MONGODB_CLUSTER_ADDRESS: mongo
+      MONGODB_USERNAME: root
+      MONGODB_PASSWORD: WEMWKL:MFE21e21e!zz2123!@!@#
       PORT: 8080
+    services:
+      mongo:
+        image: 8.2.7-rc0-windowsservercore-ltsc2025
+        ports:
+          - 27017:27017
+      env:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: WEMWKL:MFE21e21e!zz2123!@!@#
     steps:
       - name: Get Code
         uses: actions/checkout@v6
